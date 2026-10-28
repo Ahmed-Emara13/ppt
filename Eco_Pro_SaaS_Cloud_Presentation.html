@@ -557,7 +557,15 @@
   .mbar .track { height: 26px; border-radius: 8px; background: var(--sunk); box-shadow: inset 0 0 0 1px var(--line); overflow: hidden; }
   .mbar .track span { display: block; height: 100%; border-radius: 8px; }
   .mbar.old .track span { width: 100%; background: var(--old); }
-  .mbar.new .track span { width: 56%; background: var(--accent); }
+  .mbar.new .track span { width: 45%; background: var(--accent); }
+  /* the same workspace after the websocket restart: a thinner line under each bar */
+  .mbar.after { gap: 6px; margin-top: -10px; }
+  .mbar.after .lbl { font-size: 15px; color: var(--muted); }
+  .mbar.after .lbl b { font-size: 17px; }
+  .mbar.after .lbl em { font-style: normal; opacity: 0.75; }
+  .mbar.after .track { height: 10px; border-radius: 5px; }
+  .mbar.after .track span { border-radius: 5px; }
+  .mbar.new.after .track span { width: 23%; }
   .slide.active .mbar .track span { animation: grow 1.1s cubic-bezier(0.2, 0.7, 0.2, 1) both; animation-delay: 0.4s; transform-origin: left; }
   .saving { font-family: var(--display); font-size: 40px; font-weight: 860; font-stretch: 112%; color: var(--accent); line-height: 1; }
 
@@ -1112,10 +1120,13 @@
       </div>
       <div class="memcmp">
         <p class="eyebrow rise" style="--d:2">Memory of a quiet workspace</p>
-        <div class="mbar old rise" style="--d:3"><div class="lbl"><span>Standard setup</span><b>514 MB</b></div><div class="track"><span></span></div></div>
-        <div class="mbar new rise" style="--d:4"><div class="lbl"><span>Eco Pro SaaS Cloud</span><b>≈ 290 MB</b></div><div class="track"><span></span></div></div>
-        <p class="rise" style="--d:5"><span class="saving">≈ <span class="count" data-to="45">45</span>% less</span></p>
-        <p class="lead rise" style="--d:6; font-size:19px">The same server holds more customers, and busy customers still get all the speed they paid for.</p>
+        <div class="mbar old rise" style="--d:3"><div class="lbl"><span>Standard setup</span><b>≈ 770 MB</b></div><div class="track"><span></span></div></div>
+        <div class="mbar old after rise" style="--d:4"><div class="lbl"><span>After websocket restart <em>· no change, standard Odoo has no restart</em></span><b>≈ 770 MB</b></div><div class="track"><span></span></div></div>
+        <div class="mbar new rise" style="--d:5"><div class="lbl"><span>Eco Pro SaaS Cloud</span><b>≈ 350 MB</b></div><div class="track"><span></span></div></div>
+        <div class="mbar new after rise" style="--d:6"><div class="lbl"><span>After websocket restart</span><b>≈ 180 MB</b></div><div class="track"><span></span></div></div>
+        <p class="rise" style="--d:7"><span class="saving">≈ <span class="count" data-to="75">75</span>% less</span></p>
+        <p class="lead rise" style="--d:8; font-size:19px">The same server holds more customers, and busy customers still get all the speed they paid for.</p>
+        <p class="note rise" style="--d:9; font-size:14px">Eco Pro: measured on a live workspace. Standard: a test workspace with Odoo's normal setup, 3 workers bought.</p>
       </div>
     </div>
   </section>
